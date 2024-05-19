@@ -1,12 +1,3 @@
-/*
-    This is an loader on how your mod's build.gradle should look like, at least starting out.
-    It imports LibGDX, GSON, and 1D6 itself.
-    With these you have basically everything you need to write a mod.
-    If you need any help, feel free to reach out.
-
-    Happy modding!
-*/
-
 plugins {
     id 'java'
     id "java-library"

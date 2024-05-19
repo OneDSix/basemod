@@ -36,8 +36,8 @@ gwt-unitCache/
 www-test/
 .gwt-tmp/
 
-## Intellij
-/.idea/
+# IntelliJ IDEA
+.idea/
 *.ipr
 *.iws
 *.iml
