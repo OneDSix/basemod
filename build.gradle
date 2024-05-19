@@ -1,0 +1,72 @@
+/*
+    This is an loader on how your mod's build.gradle should look like, at least starting out.
+    It imports LibGDX, GSON, and 1D6 itself.
+    With these you have basically everything you need to write a mod.
+    If you need any help, feel free to reach out.
+
+    Happy modding!
+*/
+
+plugins {
+    id 'java'
+    id "java-library"
+}
+group 'onedsix-basemod'
+version '1.1.0'
+
+sourceSets.main.java.srcDirs = [ "src/main/java/" ]
+sourceSets.main.resources.srcDirs = ["src/main/resources/"]
+
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+    maven { url "https://oss.sonatype.org/content/repositories/releases/" }
+    maven { url "https://repo.spongepowered.org/repository/maven-public/" }
+}
+
+ext {
+    appName = "1D6-Basemod"
+    gdxVersion = '1.12.1'
+    roboVMVersion = '2.3.20'
+    box2DLightsVersion = '1.5'
+    ashleyVersion = '1.7.4'
+    aiVersion = '1.8.2'
+    gdxControllersVersion = '2.2.1'
+}
+
+dependencies {
+    // Pull from 1D6 Jitpack
+    implementation 'com.github.OneDSix:onedsix:main-SNAPSHOT'
+	implementation 'com.github.OneDSix:MiniSponge:main-SNAPSHOT'
+
+	// Utilities
+	implementation 'org.projectlombok:lombok:1.18.32'
+	annotationProcessor 'org.projectlombok:lombok:1.18.32'
+
+	// Logging
+	implementation "org.slf4j:slf4j-api:1.7.32"
+	implementation "ch.qos.logback:logback-classic:1.2.6"
+
+    // JSON and TOML
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.moandjiezana.toml:toml4j:0.7.2'
+
+    // LibGDX
+    implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-ai:$aiVersion"
+    implementation "com.badlogicgames.ashley:ashley:$ashleyVersion"
+    implementation "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
+    implementation "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+    implementation "com.badlogicgames.gdx-controllers:gdx-controllers-core:$gdxControllersVersion"
+    implementation "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+
+	// Mixin
+	implementation "org.spongepowered:mixin:0.8.5"
+	annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
+	api "org.ow2.asm:asm:9.3"
+	api "org.ow2.asm:asm-tree:9.3"
+	api "org.ow2.asm:asm-util:9.3"
+	api "org.ow2.asm:asm-commons:9.3"
+	api 'com.google.guava:guava:31.1-jre'
+}
